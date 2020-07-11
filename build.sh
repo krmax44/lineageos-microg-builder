@@ -26,6 +26,7 @@ source build/envsetup.sh
 
 # move keys for soong
 sed -i "1s;^;PRODUCT_DEFAULT_DEV_CERTIFICATE := user-keys/releasekey\nPRODUCT_OTA_PUBLIC_KEYS := user-keys/releasekey\n\n;" "vendor/lineage/config/common.mk"
+cp ../keys/** ./user-keys
 
 # start the build, logging the output
 brunch davinci | tee ../build.log
