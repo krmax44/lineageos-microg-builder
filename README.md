@@ -2,12 +2,22 @@
 
 Simple script for Debian/Ubuntu-based build servers. Tested on Ubuntu bionic (18.x).
 
+## Usage
+
 ```bash
 # run only once
 sudo ./setup.sh
 
 # run when you want to build
 ./build.sh
+
+# you may want to create a screen session for building
+screen -S lineage
+./build.sh
+# now, you can detach from the session by pressing Ctrl + A, then Ctrl + D
+# the build will continue, even when you disconnect via ssh
+# to reattach, enter
+screen -r lineage
 ```
 
 Works with Lineage 17.1 for `davinci`. Adapted from the LineageOS wiki and the [LineageOS 4 microG Docker container](https://github.com/lineageos4microg/docker-lineage-cicd). Patches are from microG.
