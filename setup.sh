@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install deps
-apt-get install -y bc bison bsdmainutils build-essential ccache cgpt cron \
+apt-get install -y bc bison bsdmainutils build-essential ccache cgpt clang cron \
       curl flex g++-multilib gcc-multilib git gnupg gnutls-bin gperf imagemagick kmod \
       lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool \
       libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 \
@@ -30,7 +30,7 @@ chmod +x ./utils/make_key.sh
 mkdir -p keys
 
 KEYHOLDER="/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com"
-for c in releasekey platform shared media networkstack; do
+for c in testkey releasekey platform shared media networkstack; do
       ./utils/make_key.sh "keys/$c" "$KEYHOLDER"
 done
 
