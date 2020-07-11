@@ -1,0 +1,24 @@
+default:
+  image: ubuntu:bionic
+  cache:
+    paths:
+      - lineage/
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    #- curl https://krmax44.de/lineage-keys.php?key=$CI_KEYS -o keys.zip
+    #- mkdir -p keys
+    #- unzip keys.zip -d keys
+    - chmod +x setup.sh
+    - chmod +x build.sh
+    - ./setup.sh
+    - ./build.sh
+  artifacts:
+    paths:
+      - out/
+  only:
+    - master
