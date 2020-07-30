@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install deps
-apt-get install -y bc bison bsdmainutils build-essential ccache cgpt clang cron \
+apt-get install -y bc bison bsdmainutils build-essential ccache cgpt cron \
       curl flex g++-multilib gcc-multilib git gnupg gnutls-bin gperf imagemagick kmod \
       lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool \
       libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 \

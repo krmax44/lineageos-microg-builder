@@ -1,0 +1,15 @@
+diff --git overlay/frameworks/base/core/res/res/values/config.xml overlay/frameworks/base/core/res/res/values/config.xml
+index 8827cd4..360d232 100644
+--- overlay/frameworks/base/core/res/res/values/config.xml
++++ overlay/frameworks/base/core/res/res/values/config.xml
+@@ -39,4 +39,10 @@
+ 
+     <!-- Specifies the maximum burn-in offset vertically. -->
+     <integer name="config_burnInProtectionMaxVerticalOffset">40</integer>
++
++    <!-- fix microg location provider -->
++    <!-- see xda https://forum.xda-developers.com/showpost.php?p=80779507&postcount=9755 -->
++    <!-- and this issue https://github.com/lineageos4microg/android_prebuilts_prebuiltapks/issues/22 -->
++    <bool name="config_enableNetworkLocationOverlay">true</bool>
++    <bool name="config_enableFusedLocationOverlay">true</bool>
+ </resources>

@@ -13,7 +13,7 @@ ccache -M 50G
 
 # sync
 cp ../davinci/manifest.xml .repo/local_manifests/manifest.xml
-repo sync --force-sync
+repo sync -q -j$( nproc --all ) --force-sync --force-remove-dirty -c --no-clone-bundle --no-tags --optimized-fetch --prune 
 
 # prepare env
 source build/envsetup.sh
@@ -25,8 +25,9 @@ source build/envsetup.sh
 ../microg/patches.sh
 
 # move keys for soong
+cp ../keys/** ./user-keys/
 sed -i "1s;^;PRODUCT_DEFAULT_DEV_CERTIFICATE := user-keys/releasekey\nPRODUCT_OTA_PUBLIC_KEYS := user-keys/releasekey\n\n;" "vendor/lineage/config/common.mk"
-cp ../keys/** ./user-keys
 
-# start the build, logging the output
+wait
+
 brunch davinci | tee ../build.log
