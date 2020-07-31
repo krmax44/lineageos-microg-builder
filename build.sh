@@ -13,7 +13,7 @@ ccache -M 50G
 
 # sync
 cp ../davinci/manifest.xml .repo/local_manifests/manifest.xml
-repo sync -q -j$( nproc --all ) --force-sync --force-remove-dirty -c --no-clone-bundle --no-tags --optimized-fetch --prune 
+repo sync -q -j$( nproc --all ) --force-sync --force-remove-dirty -c --no-clone-bundle --no-tags --optimized-fetch --prune | tee repo.log
 
 # prepare env
 source build/envsetup.sh
