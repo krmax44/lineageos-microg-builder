@@ -8,7 +8,7 @@ source build/envsetup.sh
 # patch location for microg
 # see xda https://forum.xda-developers.com/showpost.php?p=80779507&postcount=9755
 # and https://github.com/lineageos4microg/android_prebuilts_prebuiltapks/issues/22
-git -C device/xiaomi/ apply ./location.patch 
+cat ../davinci/location.patch | git -C device/xiaomi/ apply
 
 # patches from upstream
 git -C device/xiaomi/davinci/ fetch https://github.com/sm6150-dev/android_device_xiaomi_davinci && git -C device/xiaomi/davinci/ checkout FETCH_HEAD
