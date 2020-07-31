@@ -30,4 +30,12 @@ sed -i "1s;^;PRODUCT_DEFAULT_DEV_CERTIFICATE := user-keys/releasekey\nPRODUCT_OT
 
 wait
 
+function now() {
+  date "+%Y/%d/%m %H:%M:%S"
+}
+
+echo "Starting build --- $(now)"
+
 brunch davinci | tee ../build.log
+
+echo "Build completed --- $(now)"
